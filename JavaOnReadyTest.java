@@ -76,7 +76,7 @@ class Auto extends Vehiculo {
 
     @Override
     public String toString() {
-        return "Marca: " + this.marca + " Modelo: " + this.modelo + " Puertas: " + this.cantidadPuertas + " Precio: " + this.precio;
+        return "Marca: " + this.marca + " //" +  " Modelo: " + this.modelo + " //" + " Puertas: " + this.cantidadPuertas + " //" + " Precio: $" + this.precio;
     }
 }
 
@@ -102,7 +102,7 @@ class Moto extends Vehiculo {
 
     @Override
     public String toString() {
-        return "Marca: " + this.marca + " Modelo: " + this.modelo + " Cilindrada: " + this.cilindrada + " Precio: " + this.precio;
+        return "Marca: " + this.marca +" //"+ " Modelo: " + this.modelo + " //" + " Cilindrada: " + this.cilindrada +" //"+ " Precio: $" + this.precio;
     }
 }
 
@@ -131,14 +131,15 @@ public class JavaOnReadyTest implements IVehiculo {
         onReady.insertar(new Moto("Yamaha", "YBR", 80500.50, 160));
         onReady.imprimirLista();
         Thread.sleep(1000);
-        System.out.println("=============================");
+        System.out.println("=========================================");
         Thread.sleep(1000);
         onReady.masCaro();
         onReady.masBarato();
         Thread.sleep(1000);
         onReady.contieneLetra("Y");
         Thread.sleep(1000);
-        System.out.println("=============================");
+        System.out.println("=========================================");
+        System.out.println("Vehículos ordenados por precio de mayor a menor: ");
         Thread.sleep(1000);
         onReady.ordenar();
     }
@@ -155,7 +156,10 @@ public class JavaOnReadyTest implements IVehiculo {
 
     public void ordenar() {
         Collections.sort(listaVehiculos, (Vehiculo v1, Vehiculo v2) -> v2.getPrecio().compareTo(v1.getPrecio()));
-        this.imprimirLista();
+        //this.imprimirLista();
+        for (Vehiculo obj : listaVehiculos) {
+            System.out.println(obj.getMarca()+ " " +obj.getModelo());
+        }
     }
 
     @Override
