@@ -82,21 +82,21 @@ class Auto extends Vehiculo {
 
 class Moto extends Vehiculo {
 
-    private Integer cilindrada;
+    private String cilindrada;
 
     public Moto() {
     }
 
-    public Moto(String marca, String modelo, Double precio, Integer cilindrada) {
+    public Moto(String marca, String modelo, Double precio, String cilindrada) {
         super(marca, modelo, precio);
         this.cilindrada = cilindrada;
     }
 
-    public Integer getCilindrada() {
+    public String getCilindrada() {
         return cilindrada;
     }
 
-    public void setCilindrada(Integer cilindrada) {
+    public void setCilindrada(String cilindrada) {
         this.cilindrada = cilindrada;
     }
 
@@ -126,9 +126,9 @@ public class JavaOnReadyTest implements IVehiculo {
         // TODO code application logic here
         JavaOnReadyTest onReady = new JavaOnReadyTest();
         onReady.insertar(new Auto("Peugeot", "206", 200000.00, 4));
-        onReady.insertar(new Moto("Honda", "Titan", 60000.00, 125));
+        onReady.insertar(new Moto("Honda", "Titan", 60000.00, "125c"));
         onReady.insertar(new Auto("Peugeot", "208", 250000.00, 5));
-        onReady.insertar(new Moto("Yamaha", "YBR", 80500.50, 160));
+        onReady.insertar(new Moto("Yamaha", "YBR", 80500.50, "160c"));
         onReady.imprimirLista();
         Thread.sleep(1000);
         System.out.println("=========================================");
